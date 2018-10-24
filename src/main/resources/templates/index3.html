@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns: th="http://www.thymeleaf.org" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>items</title>
+    <style>
+        .test
+        {
+
+            margin: 5px;
+            color: red;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        // var list=$('#list').text;
+        // //var list = ["Saab", "Volvo", "BMW"];
+        // console.log("list: "+ list);
+        // //[Bean(month=201805, date=2018-05-02),Bean(month=201804, date=2018-05-03)], which is correct
+        //
+        //
+        // for(var i in list) {
+        //     console.log("date: "+ list.get(i).id);  //  I  got undefined
+
+        }
+
+    </script>
+
+</head>
+<body>
+<h1>Tasks for this job are :</h1>
+<p id='obj' th:text="${itmes}"></p>
+
+<tr th:each="item : ${items}">
+    <div>
+    <!--<td><span th:text="${item.id}"> Id </span></td><br>-->
+        <input id="list" class='test' type="text"  th:value="${item.id + item.name}"/>
+        <input id="list" class='test' type="text"  th:value="${item.name}"/>
+        <input id="list" class='test' type="text"  th:value="${item.description}"/><br>
+    </div>
+</tr>
+</body>
+</html>

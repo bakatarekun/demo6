@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns: th="http://www.thymeleaf.org" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>coureses</title>
+</head>
+<body>
+
+
+<div style="text-align: center">
+    <h1 th:text="${name}"></h1>
+
+    <h1>Input a job  :</h1>
+    <form  method='POST' action="/tpc">
+    Job Number: <input name="name1"  type="text">
+
+    <input type="submit" >
+    </form>
+<a href="topics">Click here to go show all items</a>
+
+</div>
+</body>
+</html>
