@@ -10,6 +10,12 @@
             margin: 5px;
             color: red;
         }
+        .tableheader
+        {
+
+            margin: 5px;
+
+        }
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
@@ -29,14 +35,21 @@
 </head>
 <body>
 <h1>Tasks for this job are :</h1>
-
-<tr th:each="item : ${items}">
+<table>
+    <tr style="color: green" class="tableheader">
+        <th>ID</th>
+        <th style="position: relative; left: 176px; ">Name</th>
+        <th style="position: relative; left: 324px; ">Description</th>
+    </tr>
+</table>
+<tr  th:each="item : ${items}">
     <div>
     <!--<td><span th:text="${item.id}"> Id </span></td><br>-->
-        <input id="list" class='test' type="text"  th:value="${item.id}"/>
-        <input id="list" class='test' type="text"  th:value="${item.name}"/>
-        <input id="list" class='test' type="text"  th:value="${item.description}"/><br>
+        <input name="input1" class='test' type="text"  th:value="${item.id}"/>
+        <input name ="input2" class='test' type="text"  th:value="${item.name}"/>
+        <input name="input3" class='test' type="text"  th:value="${item.description}"/><br>
     </div>
 </tr>
+
 </body>
 </html>
