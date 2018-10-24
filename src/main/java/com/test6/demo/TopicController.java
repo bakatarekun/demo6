@@ -19,7 +19,7 @@ public class TopicController {
     private TopicService topicService;
 
     @Autowired
-    public TopicController(TopicService topicService) { this.topicService = topicService; }
+    public TopicController(TopicService topicService) { this.topicService = topicService;}
 
     //@RequestMapping("/tpc")
 //    @RequestMapping( method= RequestMethod.GET, value="/tpc")
@@ -45,7 +45,7 @@ public class TopicController {
 
     }
     @RequestMapping(method= RequestMethod.POST, value="/tpc")
-    public String showindexpage(Model model,@RequestParam("name1") String name1){
+    public String showindexpage(Model model, @RequestParam("name1") String name1){
 
         model.addAttribute("name", name1);
         return "index";
@@ -59,7 +59,7 @@ public class TopicController {
     //public List<Topic> getAllTopics(){return topicService.getAllTopics();}
     @RequestMapping("/topics")
     public String showallitmes(Model model){
-//        List<Topic> items = new ArrayList<>();
+       // List<Topic> items = new ArrayList<>();
         //List<Topic>  items = topicService.getAllTopics();
         model.addAttribute("items", topicService.getAllTopics());
         return "index3";
@@ -67,9 +67,10 @@ public class TopicController {
 
     @RequestMapping(method= RequestMethod.POST, value = "/topics/job")
     public String getTopic(@RequestParam("job") String job, Model model){
-
-
-        model.addAttribute("job", topicService.getTopics(job));
+        Topic t = topicService.getTopics(job);
+        String result  = t.getId() + " " + t.getName() + " " + t.getDescription();
+       // model.addAttribute("job", topicService.getTopics(job));
+        model.addAttribute("job", result);
         return "displayitem";
     }
 
