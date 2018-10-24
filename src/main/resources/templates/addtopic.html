@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns: th="http://www.thymeleaf.org" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Please input an item</h1><br>
+<form  method='POST' action="/topics/add" th:action="@{/topics/add}">
+    ID: <input name="id"  type="text">
+    Name: <input name="name"  type="text">
+    Description: <input name="description"  type="text">
+
+    <input type="submit" >
+</form>
+</body>
+</html>
