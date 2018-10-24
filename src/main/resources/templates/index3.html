@@ -22,7 +22,7 @@
         // for(var i in list) {
         //     console.log("date: "+ list.get(i).id);  //  I  got undefined
 
-        }
+      //  }
 
     </script>
 
@@ -34,7 +34,7 @@
 <tr th:each="item : ${items}">
     <div>
     <!--<td><span th:text="${item.id}"> Id </span></td><br>-->
-        <input id="list" class='test' type="text"  th:value="${item.id + item.name}"/>
+        <input id="list" class='test' type="text"  th:value="${item.id}"/>
         <input id="list" class='test' type="text"  th:value="${item.name}"/>
         <input id="list" class='test' type="text"  th:value="${item.description}"/><br>
     </div>
