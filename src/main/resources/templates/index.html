@@ -11,14 +11,16 @@
     <h1 th:text="${name}"></h1>
 
     <h1>Input a job  :</h1>
-    <form  method='POST' action="/tpc">
-    Job Number: <input name="name1"  type="text">
+    <form  method='POST' action="/topics/job">
+    Job Number: <input name="job"  type="text">
 
     <input type="submit" >
     </form>
     <br>
     <br>
-<a href="topics">Click here to go show all items</a>
+
+    <a href="topics">Click here to go show all items</a><br><br>
+    <a href="/topics/add">Click here to add items</a>
 
 </div>
 </body>
