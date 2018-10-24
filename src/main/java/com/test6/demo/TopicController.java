@@ -65,15 +65,32 @@ public class TopicController {
         return "index3";
     }
 
-    @RequestMapping("/topics/{id}")
-    public Topic getTopic(@PathVariable String id){
-        return topicService.getTopics(id);
+    @RequestMapping(method= RequestMethod.POST, value = "/topics/job")
+    public String getTopic(@RequestParam("job") String job, Model model){
+
+
+        model.addAttribute("job", topicService.getTopics(job));
+        return "displayitem";
     }
 
-    @RequestMapping(method= RequestMethod.POST, value="/topics")
-    public void addTopic(@RequestBody Topic topic){
-        topicService.addTopic(topic);
+//    @RequestMapping(method= RequestMethod.POST, value="/topics")
+//    public void addTopic(@RequestBody Topic topic){
+//        topicService.addTopic(topic);
+//    }
+
+    @RequestMapping(method= RequestMethod.GET, value="/topics/add")
+    public String addTopic(){
+
+        return ("addtopic");
     }
+
+    @RequestMapping(method= RequestMethod.POST, value="/topics/add")
+public void addTopic(@RequestParam("id") String id,@RequestParam("name") String name,@RequestParam("description") String description){
+     Topic test =  new Topic(id, name, description);
+        topicService.addTopic(test);
+
+
+}
 
     @RequestMapping(method= RequestMethod.PUT, value="/topics/{id}")
     public void updateTopic(@RequestBody Topic topic, @PathVariable String id){
