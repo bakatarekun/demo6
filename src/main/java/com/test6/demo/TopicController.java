@@ -53,7 +53,14 @@ public class TopicController {
 
     }
 
+    @RequestMapping(method= RequestMethod.GET, value="/tpc/reacttest")
+    public String showreactpage(Model model){
 
+
+        return "reacttest";
+        //return topicService.getAllTopics();
+
+    }
 
     //@RequestMapping("/topics")
     //public List<Topic> getAllTopics(){return topicService.getAllTopics();}
