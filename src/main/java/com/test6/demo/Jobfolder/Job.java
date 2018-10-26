@@ -1,4 +1,4 @@
-package com.test6.demo;
+package com.test6.demo.Jobfolder;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
