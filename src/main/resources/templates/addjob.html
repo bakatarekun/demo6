@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns: th="http://www.thymeleaf.org" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Please input a job</h1><br>
+<form  method='POST' action="/jobs/add" th:action="@{/jobs/add}">
+    ID: <input name="id"  type="text">
+    ClientID: <input name="client_id"  type="text">
+    Data-MillID: <input name="data_mill_id"  type="text">
+
+    <input type="submit" value="add" >
+</form>
+</body>
+</html>
