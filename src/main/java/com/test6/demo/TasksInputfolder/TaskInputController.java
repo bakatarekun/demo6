@@ -51,9 +51,9 @@ public class TaskInputController {
     }
 
     @RequestMapping(method= RequestMethod.POST, value="/taskinputs/add")
-    @ResponseBody
+  //  @ResponseBody
    // public void addTaskinput(@RequestParam("inputbox") int [] inputboxes, @RequestParam("inputboxstring") String [] inputboxstring )
-    public void addTaskinput(@RequestParam("job_id") int job_id,
+    public String addTaskinput(Model model, @RequestParam("job_id") int job_id,
                              @RequestParam("task_id") int task_id,
                              @RequestParam("user_ID") int user_id,
                              @RequestParam("time_taken") String time_taken,
@@ -67,6 +67,9 @@ public class TaskInputController {
       TaskInput t =  new TaskInput(job_id, task_id, user_id, time_taken, records_input,records_output,records_dropped,user_note, workflow);//current_time);//,user_note,workflow);
       //  TaskInput t =  new TaskInput(inputboxes[0],inputboxes[1],inputboxes[2],inputboxstring[0],inputboxes[3],inputboxes[4],inputboxes[5],inputboxstring[1],inputboxstring[2],inputboxes[6]);
         taskService.addTaskInput(t);
+        //return ("displaytaskinputs");
+        model.addAttribute("taskinputs", taskService.getAllTaskInputs());
+        return "displaytaskinputs";
 
     }
 
