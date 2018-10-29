@@ -1,117 +1,130 @@
 package com.test6.demo.TasksInputfolder;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 @Entity
+@Table(name="taskinputs4")
 public class TaskInput {
 
+
+   // @GeneratedValue
     @Id
-    @GeneratedValue
-    private int job_id;
-    private int task_id;
-    private int user_ID;
-    private Date  time_taken;
-    private int records_input;
-    private int records_output;
-    private int records_dropped;
-    private Date  current_time;
-    private String user_note;
+    @Column(name="job_id", length=10)
+    private int jobid;
+    @Column(name="task_id" , length=10)
+    private int taskid;
+    @Column(name="user_ID", length=10)
+    private int userID;
+    @Column(name="time_taken", length=10)
+    private String  timetaken;
+
+    @Column(name="records_input", length=10)
+    private int recordsinput;
+    @Column(name="records_output", length=10)
+    private int recordsoutput;
+    @Column(name="records_dropped", length=10)
+    private int recordsdropped;
+//    @Column(name="current_time", length=10)
+//    private String  currenttime;
+    @Column(name="user_note", length=10)
+    private String usernote;
+    @Column(name="workflow", length=10)
     private int workflow;
 
     public TaskInput() {
 
     }
-    public TaskInput(int job_id, int task_id, int user_ID, Date time_taken, int records_input,
-                     int records_output, int records_dropped, Date current_time, String user_note, int workflow)
+
+    public TaskInput(int jobid, int taskid, int userID, String timetaken, int recordsinput
+
+                    ,int recordsoutput, int recordsdropped,String usernote, int workflow)//, String currenttime)//, String usernote, int workflow)
     {
         super();
-        this.job_id = job_id;
-        this.task_id = task_id;
-        this.user_ID = user_ID;
-        this.time_taken = time_taken;
-        this.records_input = records_input;
-        this.records_output= records_output;
-        this.records_dropped=records_dropped;
-        this.current_time = current_time;
-        this.user_note = user_note;
-        this. workflow = workflow;
+        this.jobid = jobid;
+        this.taskid = taskid;
+        this.userID = userID;
+        this.timetaken = timetaken;
+        this.recordsinput = recordsinput;
+        this.recordsoutput= recordsoutput;
+        this.recordsdropped=recordsdropped;
+         //this.currenttime = currenttime;
+       this.usernote = usernote;
+      this. workflow = workflow;
     }
 
-    public int getJob_id() {
-        return job_id;
+    public int getJobid() {
+        return jobid;
     }
 
-    public void setJob_id(int job_id) {
-        this.job_id = job_id;
+    public void setJobid(int jobid) {
+        this.jobid = jobid;
     }
 
-    public int getTask_id() {
-        return task_id;
+    public int getTaskid() {
+        return taskid;
     }
 
-    public void setTask_id(int task_id) {
-        this.task_id = task_id;
+    public void setTaskid(int taskid) {
+        this.taskid = taskid;
     }
 
-    public int getUser_ID() {
-        return user_ID;
+    public int getUserID() {
+        return userID;
     }
 
-    public void setUser_ID(int user_ID) {
-        this.user_ID = user_ID;
+    public void setUserID(int userID) {
+        this.userID = userID;
     }
 
-    public Date getTime_taken() {
-        return time_taken;
+    public String getTimetaken() {
+        return timetaken;
     }
 
-    public void setTime_taken(Date time_taken) {
-        this.time_taken = time_taken;
+    public void setTimetaken(String timetaken) {
+        this.timetaken = timetaken;
     }
 
-    public int getRecords_input() {
-        return records_input;
+    public int getRecordsinput() {
+        return recordsinput;
     }
 
-    public void setRecords_input(int records_input) {
-        this.records_input = records_input;
+    public void setRecordsinput(int recordsinput) {
+        this.recordsinput = recordsinput;
     }
 
-    public int getRecords_output() {
-        return records_output;
+    public int getRecordsoutput() {
+        return recordsoutput;
     }
 
-    public void setRecords_output(int records_output) {
-        this.records_output = records_output;
+    public void setRecordsoutput(int recordsoutput) {
+        this.recordsoutput = recordsoutput;
     }
 
-    public int getRecords_dropped() {
-        return records_dropped;
+    public int getRecordsdropped() {
+        return recordsdropped;
     }
 
-    public void setRecords_dropped(int records_dropped) {
-        this.records_dropped = records_dropped;
+    public void setRecordsdropped(int recordsdropped) {
+        this.recordsdropped = recordsdropped;
     }
 
-    public Date getCurrent_time() {
-        return current_time;
+//    public String getCurrenttime() {
+//        return currenttime;
+//    }
+//
+//    public void setCurrenttime(String currenttime) {
+//        this.currenttime = currenttime;
+//    }
+
+    public String getUsernote() {
+        return usernote;
     }
 
-    public void setCurrent_time(Date current_time) {
-        this.current_time = current_time;
+    public void setUsernote(String usernote) {
+        this.usernote = usernote;
     }
-
-    public String getUser_note() {
-        return user_note;
-    }
-
-    public void setUser_note(String user_note) {
-        this.user_note = user_note;
-    }
-
+//
     public int getWorkflow() {
         return workflow;
     }
