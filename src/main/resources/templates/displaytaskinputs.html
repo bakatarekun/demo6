@@ -16,7 +16,44 @@
 </head>
 <body>
 <h1>Tasks for this job are :</h1>
+<!--<table>-->
+    <!--<tr>-->
+        <!--<td>Job ID</td>-->
+        <!--<td>Task ID</td>-->
+        <!--<td>User ID</td>-->
+        <!--<td>Time Taken</td>-->
+        <!--<td>Records Input</td>-->
+        <!--<td>Records Output</td>-->
+        <!--<td>Records Dropped</td>-->
+
+
+        <!--<td>Workflow</td>-->
+    <!--</tr>-->
+<!--</table>-->
+<!--<tr  th:each="taskinput : ${taskinputs}">-->
+    <!--<div>-->
+
+        <!--<input name="input1"  type="text"  th:value="${taskinput.jobid}"/>-->
+        <!--<input name ="input2"  type="text"  th:value="${taskinput.taskid}"/>-->
+        <!--<input name="input3"  type="text"  th:value="${taskinput.userID}"/>-->
+        <!--<input name="input4"  type="text"  th:value="${taskinput.timetaken}"/>-->
+        <!--<input name ="input5" type="text"  th:value="${taskinput.getRecordsinput()}"/>-->
+        <!--<input name="input6" type="text"  th:value="${taskinput.getRecordsoutput()}"/>-->
+        <!--<input name="input7"  type="text"  th:value="${taskinput.getRecordsdropped()}"/>-->
+        <!--&lt;!&ndash;<input name ="input8"  type="text"  th:value="${taskinput.getCurrenttime()}"/>&ndash;&gt;-->
+
+        <!--<input name="input10"  type="text"  th:value="${taskinput.workflow}"/>-->
+        <!--<input name="input9"  type="text"  th:value="${taskinput.usernote}"/><br>-->
+
+    <!--</div>-->
+
+
+<!--</tr>-->
+<!--<a href="/taskinputs/add">Go back to enter taskinput</a><br><br>-->
+
 <table>
+
+
     <tr>
         <td>Job ID</td>
         <td>Task ID</td>
@@ -25,29 +62,38 @@
         <td>Records Input</td>
         <td>Records Output</td>
         <td>Records Dropped</td>
-
-
         <td>Workflow</td>
+        <td>User Notes</td>
+
     </tr>
+    <tr  th:each="taskinput : ${taskinputs}">
+        <div>
+
+            <td><input name="input1"  type="text"  th:value="${taskinput.jobid}"/></td>
+            <td><input name ="input2"  type="text"  th:value="${taskinput.taskid}"/></td>
+
+            <td><input name="input3"  type="text"  th:value="${taskinput.userID}"/></td>
+
+            <td><input name="input4"  type="text"  th:value="${taskinput.timetaken}"/></td>
+
+            <td><input name ="input5" type="text"  th:value="${taskinput.getRecordsinput()}"/></td>
+
+            <td><input name="input6" type="text"  th:value="${taskinput.getRecordsoutput()}"/></td>
+
+            <td><input name="input7"  type="text"  th:value="${taskinput.getRecordsdropped()}"/></td>
+
+            <!--<input name ="input8"  type="text"  th:value="${taskinput.getCurrenttime()}"/>-->
+
+            <td><input name="input10"  type="text"  th:value="${taskinput.workflow}"/></td>
+
+            <td><input name="input9"  type="text"  th:value="${taskinput.usernote}"/><br></td>
+
+
+        </div>
+
+
+    </tr>
+    <a href="/taskinputs/add">Go back to enter taskinput</a><br><br>
 </table>
-<tr  th:each="taskinput : ${taskinputs}">
-    <div>
-
-        <input name="input1"  type="text"  th:value="${taskinput.jobid}"/>
-        <input name ="input2"  type="text"  th:value="${taskinput.taskid}"/>
-        <input name="input3"  type="text"  th:value="${taskinput.userID}"/>
-        <input name="input4"  type="text"  th:value="${taskinput.timetaken}"/>
-        <input name ="input5" type="text"  th:value="${taskinput.getRecordsinput()}"/>
-        <input name="input6" type="text"  th:value="${taskinput.getRecordsoutput()}"/>
-        <input name="input7"  type="text"  th:value="${taskinput.getRecordsdropped()}"/>
-        <!--<input name ="input8"  type="text"  th:value="${taskinput.getCurrenttime()}"/>-->
-        <input name="input9"  type="text"  th:value="${taskinput.usernote}"/>
-        <input name="input10"  type="text"  th:value="${taskinput.workflow}"/><br>
-
-    </div>
-
-
-</tr>
-
 </body>
 </html>
