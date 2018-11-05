@@ -18,7 +18,11 @@ public class JobController {
     public JobController(JobService jobService) { this.jobService = jobService;}
 
 
-
+    @RequestMapping(method= RequestMethod.GET, value="/topics/add/courses")
+    public String addcourse()
+    {
+        return "createcourse";
+    }
 
 
     @RequestMapping("/jobs/displayjobs")
@@ -35,6 +39,18 @@ public class JobController {
 
         model.addAttribute("job", result);
         return "displayjob";
+    }
+
+    @RequestMapping(method= RequestMethod.GET, value="/ajaxtest")
+    public String addCourse(){
+
+        return ("AjaxTest");
+    }
+    @RequestMapping(method= RequestMethod.POST, value="/testjson/add")
+    public String addCourse2(Model model, @RequestParam("course_id") String str ){
+
+       model.addAttribute("result", str);
+        return ("testjson2");
     }
 
 

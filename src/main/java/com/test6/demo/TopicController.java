@@ -64,6 +64,7 @@ public class TopicController {
 
     //@RequestMapping("/topics")
     //public List<Topic> getAllTopics(){return topicService.getAllTopics();}
+
     @RequestMapping("/topics")
     public String showallitmes(Model model){
        // List<Topic> items = new ArrayList<>();
@@ -76,9 +77,27 @@ public class TopicController {
     public String getTopic(@RequestParam("job") String job, Model model){
         Topic t = topicService.getTopics(job);
         String result  = t.getId() + " " + t.getName() + " " + t.getDescription();
-       // model.addAttribute("job", topicService.getTopics(job));
+        // model.addAttribute("job", topicService.getTopics(job));
         model.addAttribute("job", result);
         return "displayitem";
+    }
+
+    @RequestMapping(method= RequestMethod.GET, value = "/topics/job")
+    @ResponseBody
+    public List<Topic> getTopic2(){
+
+
+//        Topic t = new Topic("Ken", "Yamanaka", "Software Engineer");
+//        Topic t2 = new Topic("Sean", "Yamanaka", "High School Student");
+//        Topic t3 = new Topic("Emma", "Yamanaka", "Middle School Student");
+//        List<Topic> items = new ArrayList<>();
+//        items.add(t);
+//        items.add(t2);
+//        items.add(t3);
+
+        List<Topic>  items = topicService.getAllTopics();
+
+        return items;
     }
 
 //    @RequestMapping(method= RequestMethod.POST, value="/topics")
@@ -93,11 +112,11 @@ public class TopicController {
     }
 
     @RequestMapping(method= RequestMethod.POST, value="/topics/add")
-public void addTopic(@RequestParam("id") String id,@RequestParam("name") String name,@RequestParam("description") String description){
+public String addTopic(@RequestParam("id") String id,@RequestParam("name") String name,@RequestParam("description") String description){
      Topic test =  new Topic(id, name, description);
         topicService.addTopic(test);
 
-
+        return ("addtopic");
 }
 
     @RequestMapping(method= RequestMethod.PUT, value="/topics/{id}")

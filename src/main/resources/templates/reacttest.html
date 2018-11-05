@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="index.css">
     <!-- Don't use this in production: -->
     <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
 </head>
 <body>
 <div id="root"></div>
@@ -64,6 +68,14 @@
         margin-left: 20px;
     }
 
+    .testclass {
+
+        color:red;
+    }
+    .testclass2 {
+
+        color:blue;
+    }
 </style>
 <script type="text/babel">
 
@@ -75,10 +87,25 @@
     );
 
 
-    function Square(props) {
+    function Square1(props) {
+        // let b;
+        // // // let a =  props.value  == 'X' ? 'square testclass' : 'square testclass2';
+        // if(props.value == 'X')
+        // {
+        //     b = 'square testclass';
+        // }
+        // else {
+        //     b = 'square testclass2';
+        // }
+        //alert(Board.returnstate());
+        // let b =0;
+        //  b++;
+        //  let a  = b%2 == 0 ? 'square testclass' : 'square testclass2';
+        let a = 'square testclass';
         return (
-            <button className="square" onClick={props.onClick}>
-                {props.value}
+
+            <button className={a} onClick={props.onClick}>
+                   {props.value}
             </button>
         );
     }
@@ -94,6 +121,10 @@
             };
         }
 
+        returnstate()
+        {
+            return this.state.xIsNext;
+        }
 
         handleClick(i) {
             debugger;
@@ -112,7 +143,7 @@
 
              const that = this;
 
-             return (<Square value={this.state.squares[i]}   onClick={function(){ that.handleClick(i)}}/>);
+             return (<Square1  value={this.state.squares[i]}   onClick={function(){ that.handleClick(i)}}/>);
 
         }
 

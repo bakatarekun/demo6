@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" xmlns: th="http://www.thymeleaf.org" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+
+            $("#myformbtn").on('click', function() {
+                // $("#mybtn").on('click', function() {
+                alert("function fired");
+                var action = $('#topic').val() == "hi" ? "hi" : "test";
+                $("#myform").attr("action", "/topics/" + action+ "/courses");
+            });
+
+        });
+
+        function ajaxcall() {
+
+            // var $course_id = $("#course_id");
+            // var $course_name = $("#course_name");
+            // var $course_description = $("#course_description");
+            //
+            // var Course = {
+            //      "id":$course_id.val(),
+            //      "name": $course_name.val(),
+            //     "description": $course_description.val()
+            //
+            // }
+
+
+            // alert("Sending Json"+ Course.id +" "+ Course.name);
+            ;
+            var temp = $('#topic').val();
+            var list = $('#list');
+
+            $.ajax({
+                type: "GET",
+                url: "/topics/job",
+                // data: Course,
+                dataType: "json",
+                contentType: "application/json",
+                success: function (data) {
+                    var data2 = data;
+                    var str = data2[temp].id + " " + data2[temp].name+" " +data2[temp].description;
+
+                    $("#mydiv").text(str);
+                    $.each(data, function (i,d) {
+                        list.append('<li>id: ' + d.id + ' name '+ d.name +' ' + d.description + '</li>');
+
+                    })
+
+                },
+
+                error: function (){
+
+                    alert("wasn't succesful");
+
+                }
+            });
+        }
+    </script>
+</head>
+<body>
+<h1>Please input a topic to search</h1><br>
+<!--<form  id="myform" method='POST' action="/topics/hi/courses" th:action="@{/topics/hi/courses}">-->
+<div style="display: inline-block">
+    Topic: <input id="topic" name="topic_id"  type="text">
+    <input type="button" id="mybtn" onclick="ajaxcall()" value="search for a record"/>
+    <h4 id="mydiv"></h4>
+    <!--<div id="mydiv"></div>-->
+</div>
+
+<!--Topic: <input id="topic" name="topic_id"  type="text">-->
+<!--<input type="button" id="mybtn" onclick="submitform()"value="ajax call"/>-->
+<br>
+<br>
+<div id="mydiv2"></div>
+<ul id="list">
+
+</ul>
+</body>
+</body>
+</html>

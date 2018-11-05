@@ -4,11 +4,11 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name="taskinputs4")
+@Table(name="taskinputs")
 public class TaskInput {
 
 
-   // @GeneratedValue
+    // @GeneratedValue
     @Id
     @Column(name="job_id", length=10)
     private int jobid;
@@ -25,8 +25,8 @@ public class TaskInput {
     private int recordsoutput;
     @Column(name="records_dropped", length=10)
     private int recordsdropped;
-//    @Column(name="current_time", length=10)
-//    private String  currenttime;
+    //  @Column(name="current_time", length=10)
+//  private String  currenttime;
     @Column(name="user_note", length=10)
     private String usernote;
     @Column(name="workflow", length=10)
@@ -38,7 +38,7 @@ public class TaskInput {
 
     public TaskInput(int jobid, int taskid, int userID, String timetaken, int recordsinput
 
-                    ,int recordsoutput, int recordsdropped,String usernote, int workflow)//, String currenttime)//, String usernote, int workflow)
+            ,int recordsoutput, int recordsdropped,String usernote, int workflow)//, String currenttime)//, String usernote, int workflow)
     {
         super();
         this.jobid = jobid;
@@ -48,9 +48,9 @@ public class TaskInput {
         this.recordsinput = recordsinput;
         this.recordsoutput= recordsoutput;
         this.recordsdropped=recordsdropped;
-         //this.currenttime = currenttime;
-       this.usernote = usernote;
-      this. workflow = workflow;
+        //this.currenttime = currenttime;
+        this.usernote = usernote;
+        this. workflow = workflow;
     }
 
     public int getJobid() {
@@ -124,7 +124,7 @@ public class TaskInput {
     public void setUsernote(String usernote) {
         this.usernote = usernote;
     }
-//
+    //
     public int getWorkflow() {
         return workflow;
     }

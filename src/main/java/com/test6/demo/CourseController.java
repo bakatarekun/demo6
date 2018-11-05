@@ -1,6 +1,7 @@
 package com.test6.demo;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
@@ -24,11 +25,27 @@ public class CourseController {
         return courseService.getCourse(id);
     }
 
+
+//    @RequestMapping(method= RequestMethod.POST, value="/topics/{topicId}/courses")
+//    public void addCourse(@RequestBody Course course, @PathVariable String topicId){
+//        course.setTopic(new Topic(topicId, "","" ));
+//        courseService.addCourse(course);
+//    }
+
+
+
     @RequestMapping(method= RequestMethod.POST, value="/topics/{topicId}/courses")
-    public void addCourse(@RequestBody Course course, @PathVariable String topicId){
+    public void addCourse( @RequestParam("course_id") String course_id,
+                           @RequestParam("course_name") String course_name,
+                           @RequestParam("course_description") String course_description,@PathVariable String topicId)
+    {
+        Course course = new Course( course_id, course_name, course_description, null);
         course.setTopic(new Topic(topicId, "","" ));
         courseService.addCourse(course);
     }
+
+
+
 
     @RequestMapping(method= RequestMethod.PUT, value="/topics/{topicId}/courses/{id}")
     public void updateCourse(@RequestBody Course course, @PathVariable String topicId, @PathVariable String id){

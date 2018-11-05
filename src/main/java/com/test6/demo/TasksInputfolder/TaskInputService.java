@@ -13,7 +13,7 @@ public class TaskInputService {
     @Autowired
     private TaskInputRepository taskInputRepository;
 
-    private   List<TaskInput> jobs =  new ArrayList<>(Arrays.asList(
+    private   List<TaskInput> taskinput =  new ArrayList<>(Arrays.asList(
 //          new TaskInput(1,1,1 ),
 //          new TaskInput(2,2,2 ),
 //          new TaskInput(3,3,3 )
