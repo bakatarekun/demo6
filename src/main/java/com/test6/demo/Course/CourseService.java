@@ -1,4 +1,4 @@
-package com.test6.demo;
+package com.test6.demo.Course;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

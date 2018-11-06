@@ -1,4 +1,6 @@
-package com.test6.demo;
+package com.test6.demo.Course;
+
+import com.test6.demo.Topic.Topic;
 
 import javax.persistence.*;
 //import javax.persistence.Column;

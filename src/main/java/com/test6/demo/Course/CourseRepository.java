@@ -1,6 +1,5 @@
-package com.test6.demo;
+package com.test6.demo.Course;
 
-import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
