@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 @Service
@@ -15,9 +16,7 @@ public class TopicService {
   private TopicRepository topicRepository;
 
   private   List<Topic> topics =  new ArrayList<>(Arrays.asList(
-       new Topic("C++", "C++ Framework", "C++ Framework Description"),
-        new Topic("java", "Core Java", "Java Description"),
-        new Topic("javascript", "javascript", "javascript Description")
+
       ));
 
   public List<Topic> getAllTopics(){
@@ -27,8 +26,18 @@ public class TopicService {
       return topics;
   }
 
+    public List<Topic> getAllTopicsById(){
 
-  public Topic getTopics(String id){
+        List<Topic> topics = new ArrayList<>();
+        List<Integer> topics2 = new ArrayList<>();
+        topics2.add(3);
+        topics2.add(4);
+        Iterable<Integer> iterable = topics2;
+        topicRepository.findAllById(iterable).forEach(topics::add);
+        return topics;
+    }
+
+  public Topic getTopics(int id){
 
       //return topics.stream().filter( t -> t.getId().equals(id)).findFirst().get();
       Topic t = topicRepository.findById(id).get();
@@ -59,7 +68,7 @@ public class TopicService {
         topicRepository.save(topic);
     }
 
-    public void deleteTopic(String id){
+    public void deleteTopic(int id){
 
       //topics.removeIf(t -> t.getId().equals(id));
         topicRepository.deleteById(id);

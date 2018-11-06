@@ -20,6 +20,7 @@ public class JobController {
 
     @RequestMapping(method= RequestMethod.GET, value="/topics/add/courses")
     public String addcourse()
+
     {
         return "createcourse";
     }

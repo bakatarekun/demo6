@@ -2,19 +2,21 @@ package com.test6.demo;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="topic")
 public class Topic {
 
     @Id
-    private String id;
+    private int id;
     private String name;
     private String description;
 
     public Topic() {
 
     }
-    public Topic(String id, String name, String description) {
+    public Topic(int id, String name, String description) {
         super();
         this.id = id;
         this.name = name;
@@ -25,7 +27,7 @@ public class Topic {
         return name;
     }
 
-    public String getId() {
+    public int getId() {
         return id;
     }
 
@@ -33,7 +35,7 @@ public class Topic {
         return description;
     }
 
-    public void setId(String id) {
+    public void setId(int id) {
         this.id = id;
     }
 

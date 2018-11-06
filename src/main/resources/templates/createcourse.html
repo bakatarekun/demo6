@@ -18,50 +18,13 @@
 
         });
 
-        function submitform() {
-            // var $course_id = $("#course_id");
-            // var $course_name = $("#course_name");
-            // var $course_description = $("#course_description");
-            //
-            // var Course = {
-            //      "id":$course_id.val(),
-            //      "name": $course_name.val(),
-            //     "description": $course_description.val()
-            //
-            // }
 
-
-           // alert("Sending Json"+ Course.id +" "+ Course.name);
-          ;
-            var temp = $('#topic').val();
-
-            $.ajax({
-                type: "GET",
-                url: "/topics/job",
-               // data: Course,
-                dataType: "json",
-                contentType: "application/json",
-                success: function (data) {
-                    var data2 = data;
-                    var str = data2[temp].id + " " + data2[temp].name+" " +data2[temp].description;
-                   // var str2 = data2[1].id + " " + data2[1].name+" " +data2[1].description;
-                    $("#mydiv").text(str);
-                   // $("#mydiv2").text(str2);
-                },
-
-                error: function (){
-
-                    alert("wasn't succesful");
-
-                }
-            });
-        }
     </script>
 </head>
 <body>
 <h1>Please input a course</h1><br>
 <!--<form  id="myform" method='POST' action="/topics/hi/courses" th:action="@{/topics/hi/courses}">-->
-<form  id="myform" method='POST' action="/topics/hi/courses">
+<form  id="myform" method='POST' action="/topics/1/courses">
     Topic: <input id="topic" name="topic_id"  type="text">
     ID: <input id="course_id" name="course_id"  type="text">
     Description: <input id="course_name" name="course_name"  type="text" >

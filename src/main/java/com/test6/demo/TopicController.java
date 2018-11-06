@@ -74,7 +74,7 @@ public class TopicController {
     }
 
     @RequestMapping(method= RequestMethod.POST, value = "/topics/job")
-    public String getTopic(@RequestParam("job") String job, Model model){
+    public String getTopic(@RequestParam("job") int job, Model model){
         Topic t = topicService.getTopics(job);
         String result  = t.getId() + " " + t.getName() + " " + t.getDescription();
         // model.addAttribute("job", topicService.getTopics(job));
@@ -87,17 +87,19 @@ public class TopicController {
     public List<Topic> getTopic2(){
 
 
-//        Topic t = new Topic("Ken", "Yamanaka", "Software Engineer");
-//        Topic t2 = new Topic("Sean", "Yamanaka", "High School Student");
-//        Topic t3 = new Topic("Emma", "Yamanaka", "Middle School Student");
-//        List<Topic> items = new ArrayList<>();
-//        items.add(t);
-//        items.add(t2);
-//        items.add(t3);
-
+        //List<Topic>  items = topicService.getAllTopicsById();
         List<Topic>  items = topicService.getAllTopics();
 
         return items;
+    }
+
+    @RequestMapping(method= RequestMethod.GET, value = "/topics/{id}")
+    @ResponseBody
+    public Topic getTopic3( @PathVariable int id){
+
+        Topic  topic = topicService.getTopics(id);
+
+        return topic;
     }
 
 //    @RequestMapping(method= RequestMethod.POST, value="/topics")
@@ -112,7 +114,7 @@ public class TopicController {
     }
 
     @RequestMapping(method= RequestMethod.POST, value="/topics/add")
-public String addTopic(@RequestParam("id") String id,@RequestParam("name") String name,@RequestParam("description") String description){
+public String addTopic(@RequestParam("id") int id,@RequestParam("name") String name,@RequestParam("description") String description){
      Topic test =  new Topic(id, name, description);
         topicService.addTopic(test);
 
@@ -125,7 +127,7 @@ public String addTopic(@RequestParam("id") String id,@RequestParam("name") Strin
     }
 
     @RequestMapping(method= RequestMethod.DELETE, value="/topics/{id}")
-    public void deleteTopic(@PathVariable String id){
+    public void deleteTopic(@PathVariable int id){
          topicService.deleteTopic(id);
     }
 
