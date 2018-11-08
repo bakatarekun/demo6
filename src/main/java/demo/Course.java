@@ -1,6 +1,6 @@
 package demo;
 
-import com.test6.demo.Topic;
+import com.test6.demo.Topic.Topic;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -24,7 +24,7 @@ public class Course {
 
     }
 
-    public Course(String id, String name, String description, String topicId) {
+    public Course(String id, String name, String description, int topicId) {
         super();
         this.id = id;
         this.name = name;
